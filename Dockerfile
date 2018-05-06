@@ -12,7 +12,7 @@ RUN echo "deb-src http://downloads.skewed.de/apt/xenial xenial universe" | tee -
 
 RUN apt-key adv --keyserver pgp.skewed.de --recv-key 612DEFB798507F25
 RUN apt-get -qy update
-RUN apt-get install -qy python-graph-tool
+RUN apt-get install -qy python3-graph-tool
 
 
 # FROM ubuntu:16.04
