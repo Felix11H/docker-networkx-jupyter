@@ -4,6 +4,17 @@ MAINTAINER felix11h.dev@gmail.com
 USER root
 RUN pip3 install networkx
 
+# current the method of installing graph_tool as
+# documented on website https://graph-tool.skewed.de/
+# installs graph_tool version 2.26
+RUN echo "deb http://downloads.skewed.de/apt/xenial xenial universe" | tee -a /etc/apt/sources.list
+RUN echo "deb-src http://downloads.skewed.de/apt/xenial xenial universe" | tee -a /etc/apt/sources.list
+
+RUN apt-key adv --keyserver pgp.skewed.de --recv-key 612DEFB798507F25
+RUN apt-get -qy update
+RUN apt-get install -qy python-graph-tool
+
+
 # FROM ubuntu:16.04
 # MAINTAINER felix11h.dev@gmail.com
 
