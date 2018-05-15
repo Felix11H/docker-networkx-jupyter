@@ -6,7 +6,7 @@ USER root
 RUN pip3 install cython
 RUN git clone https://github.com/networkdynamics/zenlib.git
 WORKDIR zenlib/src/
-RUN python setup.py install
+RUN python3 setup.py install
 
 RUN pip3 install networkx
 
