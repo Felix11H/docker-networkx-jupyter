@@ -2,6 +2,12 @@ FROM felix11h/scipy3_env-jupyter
 MAINTAINER felix11h.dev@gmail.com
 
 USER root
+
+RUN pip3 install cython
+RUN git clone https://github.com/networkdynamics/zenlib.git
+WORKDIR zenlib/src/
+RUN python setup.py install
+
 RUN pip3 install networkx
 
 # current the method of installing graph_tool as
@@ -9,6 +15,7 @@ RUN pip3 install networkx
 # installs graph_tool version 2.26
 RUN echo "deb http://downloads.skewed.de/apt/xenial xenial universe" | tee -a /etc/apt/sources.list
 RUN echo "deb-src http://downloads.skewed.de/apt/xenial xenial universe" | tee -a /etc/apt/sources.list
+
 
 RUN apt-key adv --keyserver pgp.skewed.de --recv-key 612DEFB798507F25
 RUN apt-get -qy update
